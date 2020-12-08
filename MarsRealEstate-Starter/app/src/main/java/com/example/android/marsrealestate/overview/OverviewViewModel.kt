@@ -52,6 +52,10 @@ class OverviewViewModel : ViewModel() {
         getMarsRealEstateProperties(MarsApiFilter.SHOW_ALL)
     }
 
+    private val _navigateToSelectedProperty = MutableLiveData<MarsProperty>()
+    val navigateToSelectedProperty: LiveData<MarsProperty>
+        get() = _navigateToSelectedProperty
+
     /**
      * Sets the value of the status LiveData to the Mars API status.
      */
@@ -70,5 +74,13 @@ class OverviewViewModel : ViewModel() {
 
     fun updateFilter(filter: MarsApiFilter) {
         getMarsRealEstateProperties(filter)
+    }
+
+    fun displayPropertyDetails(marsProperty: MarsProperty) {
+        _navigateToSelectedProperty.value = marsProperty
+    }
+
+    fun displayPropertyDetailsComplete() {
+        _navigateToSelectedProperty.value = null
     }
 }
