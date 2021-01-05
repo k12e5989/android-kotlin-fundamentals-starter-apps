@@ -22,6 +22,7 @@ apply plugin: 'kotlin-kapt'
 apply plugin: "androidx.navigation.safeargs"
 
 android {
+    buildToolsVersion "30.0.2"
     compileSdkVersion 30
     defaultConfig {
         applicationId "com.example.android.gdgfinder"
